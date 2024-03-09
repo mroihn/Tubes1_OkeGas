@@ -1,24 +1,24 @@
-# Etimo Diamonds Challenge
+# Etimo Diamonds Challenge :gem:
 >Tugas Besar IF2211 Strategi Algortima
-## General Information 
+## General Information :page_facing_up:
 This repository contains the implementation of Etimo Diamonds Bot using Greedy Algorithm.
-## Technology Used
+## Technology Used :computer:
 - node.js
 - python 3
-## Contributors (OkeGas)
+## Contributors (OkeGas) :fire:
 | NIM | Nama |
 | :---: | :---: |
 | 13522151 | Samy Muhammad Haikal |
 | 13522152 | Muhammad Roihan  |
 | 13522154 | Chelvadinda |
-## Strategy
+## Strategy :bar_chart:
 The bot will use Greedy Algorithm to determine the best strategy
 1. Calculate the density of Diamond Game Objects by using point/distance
 2. Set the goal position to the diamond with the largest density
 3. If Inventory is full go back to base
 
 
-## Game Engine Setup
+## Game Engine Setup :gear:
 1. [Click here to Download And Setup Game Engine](https://github.com/haziqam/tubes1-IF2211-game-engine/releases/tag/v1.1.0) 
 2. Make Sure You already installed yarn by using `npm install --global yarn`
 3. Go into the root directory `cd tubes1-IF2110-game-engine-1.1.0` and install dependencies using `yarn`
@@ -27,7 +27,7 @@ The bot will use Greedy Algorithm to determine the best strategy
 6. Run this script `./scripts/setup-db-prisma.bat`
 7. Build using `npm run build`
 
-## Running the Game
+## Running the Game :video_game:
 1. Clone this repository
 `git clone https://github.com/mroihn/Tubes1_OkeGas.git`
 2. Install dependencies `pip install -r requirements.txt`
