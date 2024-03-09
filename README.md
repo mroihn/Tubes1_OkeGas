@@ -15,7 +15,10 @@ This repository contains the implementation of Etimo Diamonds Bot using Greedy A
 The bot will use Greedy Algorithm to determine the best strategy
 1. Calculate the density of Diamond Game Objects by using point/distance
 2. Set the goal position to the diamond with the largest density
-3. If Inventory is full go back to base
+3. If the distance to the button is closer than the distance to the diamond, then use the button. Otherwise, if the distance to the diamond is closer
+4. If Inventory is full go back to base
+5. If Inventory greater or equal three diamonds, bot can return to the base or continue claiming diamond
+6.  If the remaining time is subtracted from the current position time to the base < 2.5 seconds, the bot returns to the base
 
 
 ## Game Engine Setup :gear:
@@ -44,5 +47,3 @@ start cmd /c "python main.py --logic Greedy2 --email=test1@email.com --name=g2 -
 6. Acces the frontend from (http://localhost:8082/)
 7. More instructions please head to
 [Etimo Diamonds GitHub Repository](https://github.com/Etimo/diamonds)
-
-## Documentation
