@@ -186,7 +186,7 @@ class Greedy1Logic(BaseLogic):
             self.goal_position.y - current_position.y
         )
 
-        print(board_bot.properties.base)
+        # print(board_bot.properties.base)
         if distBase != 0 and distNow != 0:
             if distBase < distNow:
                 self.goal_position = board_bot.properties.base

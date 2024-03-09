@@ -17,6 +17,7 @@ class Greedy2Logic(BaseLogic):
     def next_move(self, board_bot: GameObject, board: Board):
         props = board_bot.properties
         current_position = board_bot.position
+        base = board_bot.properties.base
 
         # Cari diamond berdasarkan density
         self.findByDensityDiamond(board_bot, board)
@@ -26,13 +27,20 @@ class Greedy2Logic(BaseLogic):
 
         # Jika inventory sudah full kembali ke base
         if props.diamonds == 5:
-            base = board_bot.properties.base
             self.goal_position = base
+
         # Jika inventory sudah terisi >= 3 putuskan kembali ke base atau lanjut mengambil diamond
         elif props.diamonds >= 3:
             self.cekBaseOrDir(board_bot, board)
 
-        print(board_bot.properties.name, " ", current_position, " ", self.goal_position)
+        # Jika waktu yang tersisa dikurangi waktu posisi sekarang ke base < 1.5 detik, bot kembali ke base
+        distBase = abs(board_bot.properties.base.x - current_position.x) + abs(
+            board_bot.properties.base.y - current_position.y
+        )
+        if((props.milliseconds_left - distBase*1000)<1500 and distBase !=0):
+            self.goal_position = base
+
+        # print(props.milliseconds_left)
         if self.goal_position:
             delta_x, delta_y = get_direction(
                 current_position.x,
@@ -97,7 +105,6 @@ class Greedy2Logic(BaseLogic):
             self.goal_position.y - current_position.y
         )
 
-        print(board_bot.properties.base)
         if distBase != 0 and distNow != 0:
             if distBase < distNow:
                 self.goal_position = board_bot.properties.base
@@ -107,7 +114,8 @@ class Greedy2Logic(BaseLogic):
     # Sebaliknya jika lebih dekat jarak ke diamond
     def useButtonOrNot(self, board_bot: GameObject, board: Board):
         current_position = board_bot.position
-        distBase = abs(self.button.position.x - current_position.x) + abs(
+
+        distButton = abs(self.button.position.x - current_position.x) + abs(
             self.button.position.y - current_position.y
         )
 
@@ -115,5 +123,5 @@ class Greedy2Logic(BaseLogic):
             self.goal_position.y - current_position.y
         )
 
-        if distBase < distNow:
+        if distButton < distNow:
             self.goal_position = self.button.position
