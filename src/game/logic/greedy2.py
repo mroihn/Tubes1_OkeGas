@@ -33,11 +33,11 @@ class Greedy2Logic(BaseLogic):
         elif props.diamonds >= 3:
             self.cekBaseOrDir(board_bot, board)
 
-        # Jika waktu yang tersisa dikurangi waktu posisi sekarang ke base < 1.5 detik, bot kembali ke base
+        # Jika waktu yang tersisa dikurangi waktu posisi sekarang ke base < 2.5 detik, bot kembali ke base
         distBase = abs(board_bot.properties.base.x - current_position.x) + abs(
             board_bot.properties.base.y - current_position.y
         )
-        if((props.milliseconds_left - distBase*1000)<1500 and distBase !=0):
+        if((props.milliseconds_left - distBase*1000)<2500 and distBase !=0):
             self.goal_position = base
 
         # print(props.milliseconds_left)
